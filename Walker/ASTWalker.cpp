@@ -215,7 +215,7 @@ bool ASTWalker::isInSystemHeader(const MatchFinder::MatchResult &result, const D
     try {
         //Gets where this item is located.
         auto &SourceManager = result.Context->getSourceManager();
-        auto ExpansionLoc = SourceManager.getExpansionLoc(decl->getLocStart());
+        auto ExpansionLoc = SourceManager.getExpansionLoc(decl->getBeginLoc());
 
         //Checks if we have an invalid location.
         if (ExpansionLoc.isInvalid()) {
@@ -443,7 +443,7 @@ void ASTWalker::addEnumConstantDecl(const MatchFinder::MatchResult result, const
                                     string filenameSpoof){
     //Generate the fields for the node.
     string filename = (filenameSpoof.compare(string()) == 0) ?
-                      generateFileName(result, enumDecl->getLocStart()) : filenameSpoof;
+                      generateFileName(result, enumDecl->getBeginLoc()) : filenameSpoof;
     string ID = generateID(result, enumDecl);
     string enumName = generateLabel(result, enumDecl);
     if (ID.compare("") == 0 || filename.compare("") == 0) return;
