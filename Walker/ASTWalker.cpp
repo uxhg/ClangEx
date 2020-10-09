@@ -876,7 +876,7 @@ bool ASTWalker::isSource(std::string fileName){
  */
 bool ASTWalker::isAnonymousRecord(string qualName){
     //Iterate through the anonymous names.
-    for (int i = 0; i < ANON_LIST->length(); i++){
+    for (int i = 0; i < ANON_SIZE; i++){
         if (ANON_LIST[i].compare(qualName) == 0) return true;
     }
 
