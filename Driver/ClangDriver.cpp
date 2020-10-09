@@ -339,6 +339,7 @@ bool ClangDriver::runAnalysis(bool blobMode, bool lowMemory, TAGraph* mergeGraph
         cerr << "Error: Compilation errors were detected." << endl;
         success = false;
     }
+    walker->printIdMD5map();
 
     delete walker;
     delete Tool;

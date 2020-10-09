@@ -138,8 +138,9 @@ string ASTWalker::generateFileName(const MatchFinder::MatchResult result,
 string ASTWalker::generateID(const MatchFinder::MatchResult result, const NamedDecl *dec){
     //Generates the ID.
     string name = generateIDString(result, dec);
-    name = generateMD5(name);
-    return name;
+    string md5Hash = generateMD5(name);
+    idMD5map[name] = md5Hash;
+    return md5Hash;
 }
 
 /**
@@ -881,4 +882,10 @@ bool ASTWalker::isAnonymousRecord(string qualName){
     }
 
     return false;
+}
+
+void ASTWalker::printIdMD5map() {
+    for (const auto& p: idMD5map) {
+        printf("%s\t%s\n", p.first.c_str(), p.second.c_str());
+    }
 }

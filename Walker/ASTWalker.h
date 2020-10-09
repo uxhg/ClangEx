@@ -57,6 +57,7 @@ public:
 
     /** MD5 Operations */
     static std::string generateMD5(std::string text);
+    void printIdMD5map();
 
 protected:
     /** Protected Variables */
@@ -122,6 +123,7 @@ private:
     std::string curFileName;
     TAGraph* graph;
     Printer *clangPrinter;
+    std::unordered_map<std::string, std::string> idMD5map = {};
 
     /** Edge Processor */
     void processEdge(std::string srcID, std::string srcLabel, std::string dstID, std::string dstLabel,
