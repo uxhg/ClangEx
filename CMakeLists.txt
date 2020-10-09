@@ -26,6 +26,7 @@ add_definitions(
         -D__STDC_CONSTANT_MACROS
 )
 
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
