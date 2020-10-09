@@ -889,3 +889,11 @@ void ASTWalker::printIdMD5map() {
         printf("%s\t%s\n", p.first.c_str(), p.second.c_str());
     }
 }
+
+void ASTWalker::writeIdMD5mapToFile(const string& filename) {
+    std::ofstream ostrm(filename, ios::out);
+    for (const auto& p: idMD5map) {
+        string line;
+        ostrm << p.first.c_str() << "\t" << p.second.c_str() << "\n";
+    }
+}

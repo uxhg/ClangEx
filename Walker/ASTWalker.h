@@ -58,6 +58,7 @@ public:
     /** MD5 Operations */
     static std::string generateMD5(std::string text);
     void printIdMD5map();
+    void writeIdMD5mapToFile(const std::string& filename = "ID-MD5.map");
 
 protected:
     /** Protected Variables */
